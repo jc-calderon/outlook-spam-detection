@@ -6,11 +6,11 @@ namespace OutlookSpamDetectionWeb.Controllers
 {
     [ApiController]
     [Route("api/email")]
-    public class OutlookSpamDetection : ControllerBase
+    public class SpamDetection : ControllerBase
     {
-        private readonly ILogger<OutlookSpamDetection> _logger;
+        private readonly ILogger<SpamDetection> _logger;
 
-        public OutlookSpamDetection(ILogger<OutlookSpamDetection> logger)
+        public SpamDetection(ILogger<SpamDetection> logger)
         {
             _logger = logger;
         }
