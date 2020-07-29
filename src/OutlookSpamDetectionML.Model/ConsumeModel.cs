@@ -19,7 +19,11 @@ namespace OutlookSpamDetectionML.Model
             MLContext mlContext = new MLContext();
 
             // Load model & create prediction engine
+#if DEBUG
             modelPath = modelPath ?? @"..\OutlookSpamDetectionML.Model\MLModel.zip";
+#else
+            modelPath = modelPath ?? "MLModel.zip";
+#endif
             ITransformer mlModel = mlContext.Model.Load(modelPath, out var modelInputSchema);
             var predEngine = mlContext.Model.CreatePredictionEngine<ModelInput, ModelOutput>(mlModel);
 
