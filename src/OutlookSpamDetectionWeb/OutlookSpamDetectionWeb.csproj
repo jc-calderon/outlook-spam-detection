@@ -11,5 +11,15 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OutlookSpamDetectionML.Model\OutlookSpamDetectionML.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="SpamCollection.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 
 </Project>

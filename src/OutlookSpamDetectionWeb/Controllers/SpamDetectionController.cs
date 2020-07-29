@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using OutlookSpamDetectionML.Model;
 using OutlookSpamDetectionWeb.Models;
 
 namespace OutlookSpamDetectionWeb.Controllers
@@ -19,8 +20,9 @@ namespace OutlookSpamDetectionWeb.Controllers
         public EmailResponse CheckEmail([FromBody] EmailInfo emailInfo)
         {
             var message = emailInfo.BodyText.Replace("\n", string.Empty);
+            var model = ConsumeModel.Predict(new ModelInput { Message = message });
 
-            return new EmailResponse { IsSpam = true };
+            return new EmailResponse { IsSpam = model.Prediction };
         }
     }
 }
